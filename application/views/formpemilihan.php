@@ -61,6 +61,88 @@
         </ol>
         <hr>
 
+        <form method="post" action="<?php echo base_url('index.php/form/pilihCalonWaka'); ?>">
+            <?php
+            foreach ($data_divisi->result_array() as $i) :
+                $id = $i['id_divisi'];
+                $nama = $i['nama_divisi'];
+                $ket = $i['ket_divisi'];
+
+            ?>
+                <div class="card">
+                    <h5 class="card-header">Divisi : <b><?php echo $nama; ?></b> </h5>
+                    <div class="card-body">
+                        <div class="row">
+                            <?php
+                            foreach ($data_by_divisi as $current_cat => $catgory_rows) {
+                                $no = 1;
+
+                                foreach ($catgory_rows as $key => $value) {
+                                    if ($value->id_divisi == $id) {
+                                        $idCalon = $value->id;
+                                        $namaCalon = $value->namacalon;
+                                        $visiCalon = $value->visi;
+                                        $misiCalon = $value->misi;
+                                        $fotoCalon = $value->foto;
+                                        $totalSuara = $value->totalsuara;
+                            ?>
+                                        <div class="col-md-6">
+                                            <aside class="profile-nav alt">
+                                                <section class="card">
+                                                    <div class="card-header user-header alt bg-dark">
+                                                        <div class="media">
+                                                            <h2 class="text-light display-6"><?php echo "{$no}. $namaCalon"; ?></h2>
+                                                        </div>
+                                                    </div>
+
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item">
+                                                            <center>
+                                                                <h1>
+                                                                    <img class="align-self-center" style="width:240px; height:300px;" alt="" src="<?php echo base_url('upload/' . $fotoCalon) ?>">
+                                                                </h1>
+                                                            </center><br>
+                                                            <p><b>VISI</b> <?php echo "<br />{$visiCalon}"; ?></p>
+                                                            <p><b>MISI</b> <?php echo "<br />{$misiCalon}"; ?></p>
+                                                        </li>
+                                                    </ul>
+                                                </section>
+                                            </aside>
+                                        </div>
+                            <?php
+                                    }
+                                    $no++;
+                                }
+                            }
+                            ?>
+                        </div>
+                        <select class="custom-select" required name="pilihan[]">
+                            <option value="">Pilih Divisi <?php echo $nama; ?></option>
+                            <?php
+                            foreach ($data_by_divisi as $current_cat => $dc) {
+                                foreach ($dc as $key => $value) {
+                                    if ($value->id_divisi == $id) {
+                                        $idCalon = $value->id;
+                                        $namaCalon = $value->namacalon;
+                                        $visiCalon = $value->visi;
+                                        $misiCalon = $value->misi;
+                                        $fotoCalon = $value->foto;
+                                        $totalSuara = $value->totalsuara;
+                            ?>
+                                        <option value="<?php echo $idCalon; ?>"><?php echo $namaCalon; ?></option>
+                            <?php
+                                    }
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            <?php
+            endforeach; ?>
+            <input type="submit" class="btn btn-success btn-lg btn-block">
+        </form>
+
 
         <center>
             <div class="footer-inner bg-white">
