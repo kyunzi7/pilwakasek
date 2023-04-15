@@ -109,8 +109,8 @@
 
             <h1><i class="fa fa-bar-chart-o"> </i> Hasil Pemilihan</h1>
             <hr>
-            <a class="btn btn-success" href="<?php echo base_url('Hasilpilih/export'); ?>"><i class="fa fa-print">
-                </i> Cetak</a>
+            <!-- <a class="btn btn-success" href="<?php echo base_url('Hasilpilih/export'); ?>"><i class="fa fa-print">
+                </i> Cetak</a> -->
 
             <?php $nototal = 0;
             $belummemilih = 0;

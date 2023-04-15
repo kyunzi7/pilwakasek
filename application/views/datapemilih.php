@@ -106,7 +106,9 @@
             <hr>
             <div class="row">
 
-                <div class="col"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahdata"><i class="fa fa-plus-circle"></i>&nbsp; Tambah</button> <a href="<?php echo base_url('datapem/export') ?>" class="btn btn-success"><i class="fa fa-print"></i>&nbsp; Export</a></div>
+                <div class="col"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahdata"><i class="fa fa-plus-circle"></i>&nbsp; Tambah</button>
+                    <!-- <a href="<?php echo base_url('datapem/export') ?>" class="btn btn-success"><i class="fa fa-print"></i>&nbsp; Export</a> -->
+                </div>
             </div>
             <hr>
             <?php if ($this->session->flashdata('success_msg')) {

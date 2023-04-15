@@ -77,8 +77,8 @@
         <hr>
         <a class="btn btn-success" href="<?php echo base_url('Pengawas'); ?>"><i class="fa fa-users">
             </i> Data Siswa</a>
-        <a class="btn btn-success" href="<?php echo base_url('Hasilpilih/export'); ?>"><i class="fa fa-print">
-            </i> Cetak</a>
+        <!-- <a class="btn btn-success" href="<?php echo base_url('Hasilpilih/export'); ?>"><i class="fa fa-print">
+            </i> Cetak</a> -->
 
         <?php $nototal = 0;
         $belummemilih = 0;
@@ -128,7 +128,9 @@
         ?>
 
             <div class="card">
-                <h5 class="card-header">Divisi : <b> <?php echo $nama; ?> </b> </h5>
+                <h5 class="card-header">Divisi : <b> <?php echo $nama; ?> </b>
+                    <!-- <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalViewChart">View Chart</button> -->
+                </h5>
                 <div class="card-body">
                     <div class="row">
                         <?php
@@ -190,10 +192,6 @@
     </div> <!-- .content -->
     <div class="clearfix"></div>
 
-
-
-
-
     <!--Modal Keluar -->
     <div class="modal fade" id="konfirmkeluar" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -210,6 +208,24 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modalViewChart" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticModalLabel">Report</h5>
+                </div>
+                <div class="modal-footer">
+                    <div class="d-flex justify-content-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="chart_<?php echo $id; ?>" style="width:100%;max-width:700px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <br>
@@ -265,17 +281,49 @@
         });
     </script>
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
 
+        });
+        // let arrayData = [];
+        // let xArray = [];
+        // let yArray = [];
+        // let layout = [];
+        // let data = [];
+        // <?php
+            // foreach ($data_divisi->result_array() as $i) :
+            //     $id = $i['id_divisi'];
+            //     $nama = $i['nama_divisi'];
+            // 
+            ?>
 
+        //     xArray[<?php echo $id; ?>] = ["Italy", "France", "Spain", "USA", "Argentina"];
+        //     yArray[<?php echo $id; ?>] = [55, 49, 44, 24, 15];
 
-    <div id="container">
+        //     layout[<?php echo $id; ?>] = {
+        //         title: "Divisi <?php echo $nama; ?>"
+        //     };
 
+        //     data[<?php echo $id; ?>] = [{
+        //         labels: xArray[<?php echo $id; ?>],
+        //         values: yArray[<?php echo $id; ?>],
+        //         type: "pie"
+        //     }];
 
+        //     arrayData.push(<?php echo $id; ?>);
 
-    </div>
+        // <?php
+            // endforeach;
+            // 
+            ?>
 
+        // arrayData.forEach(function(element) {
+        //     console.log(element);
+        //     Plotly.newPlot("chart_" + element, data[element], layout[element]);
 
-
+        // });
+    </script>
 </body>
 
 </html>
