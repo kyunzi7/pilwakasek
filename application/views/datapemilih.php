@@ -206,7 +206,7 @@
 
             <!--Modal tambah-->
             <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="smallmodalLabel"></h5>
@@ -294,10 +294,14 @@
                 $password = $i['password'];
                 $namasiswa = $i['namasiswa'];
                 $kelas = $i['kelas'];
-                $suara = $i['suara'];
+                // $suara_1 = $i['suara_1'];
+                // $suara_2 = $i['suara_2'];
+                // $suara_3 = $i['suara_3'];
+                // $suara_4 = $i['suara_4'];
+                // $suara_5 = $i['suara_5'];
             ?>
                 <div class="modal fade" id="editdata<?php echo $id; ?>" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-dialog modal-md" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="smallmodalLabel"></h5>
@@ -379,7 +383,7 @@
 
             <!--Modal Keluar -->
             <div class="modal fade" id="konfirmkeluar" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticModalLabel">Apakah anda yakin ingin keluar?</h5>
@@ -419,7 +423,7 @@
 
                         </div>
                         <div class="col-sm-6 text-right">
-                            Copyright &copy; TIM IT SMANSAKU || 2023
+                            Copyright &copy; TIM IT SMANSAKU || <?php echo date('Y'); ?>
                         </div>
                     </div>
                 </div>

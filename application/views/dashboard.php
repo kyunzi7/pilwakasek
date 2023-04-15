@@ -2,7 +2,9 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +26,8 @@
     <link href="assets/calendar/fullcalendar.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="assets/css/charts/chartist.min.css" rel="stylesheet"> 
-    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet"> 
+    <link href="assets/css/charts/chartist.min.css" rel="stylesheet">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="assets/datatable/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="assets/datatable/css/bootstrap.css">
@@ -34,30 +36,30 @@
 
 
 </head>
+
 <body>
 
-<?php
+    <?php
 
-$login=$this->session->userdata('status');
-if($login=='loginadmin'){
-    
-}else if($login=='loginsiswa'){
-    redirect(base_url('?pesan=salah'));
-}else if($login=='loginpengawas'){
-    redirect(base_url('?pesan=salah'));
-}else{
-    redirect(base_url('?pesan=belumlogin'));
-}
+    $login = $this->session->userdata('status');
+    if ($login == 'loginadmin') {
+    } else if ($login == 'loginsiswa') {
+        redirect(base_url('?pesan=salah'));
+    } else if ($login == 'loginpengawas') {
+        redirect(base_url('?pesan=salah'));
+    } else {
+        redirect(base_url('?pesan=belumlogin'));
+    }
 
-?>
+    ?>
 
-    <!-- Left Panel --> 
+    <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default"> 
+        <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="https://mumbool.com'><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="https://mumbool.com"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Menu</li><!-- /.menu-title -->
 
@@ -69,7 +71,7 @@ if($login=='loginadmin'){
                             <li><i class="fa fa-eye"></i><a href="Datapeng">Data Pengawas</a></li>
                             <li><i class="fa fa-user"></i><a href="Datapem">Data Pemilih</a></li>
                         </ul>
-                        </li>
+                    </li>
 
                     <li class="menu-item">
                         <a href="Hasilpilih" class="" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart-o"></i>Hasil Pemilihan</a>
@@ -78,60 +80,61 @@ if($login=='loginadmin'){
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
-    </aside><!-- /#left-panel --> 
+    </aside><!-- /#left-panel -->
     <!-- Left Panel -->
 
 
-    <!-- Right Panel --> 
+    <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">  
+        <header id="header" class="header">
             <div class="top-left">
-                <div class="navbar-header"> 
-                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a> 
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> 
-                </div> 
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
             </div>
             <div style="position: fixed;right: 30px; top: 8px;">
-                    <a class="btn btn-outline-primary" style="" data-toggle="modal" data-target="#konfirmkeluar">Keluar</a>
+                <a class="btn btn-outline-primary" style="" data-toggle="modal" data-target="#konfirmkeluar">Keluar</a>
             </div>
         </header><!-- /header -->
         <!-- Header-->
         <div class="content pb-0">
 
-    
-    <img src="images/logo.png" alt="E-Pilwakasek" href="./" width="30%" height="30%"><hr>
 
-    <div class="container bg-white">
-      <br>
-        E-Pilwakasek merupakan aplikasi yang berfungsi untuk mempermudah pada proses pemilihan Calon Wakil Kepala Sekolah SMA Negeri 1 Cilaku.<br><br>
-    </div>
-    <br>
+            <img src="images/logo.png" alt="E-Pilwakasek" href="./" width="30%" height="30%">
+            <hr>
+
+            <div class="container bg-white">
+                <br>
+                E-Pilwakasek merupakan aplikasi yang berfungsi untuk mempermudah pada proses pemilihan Calon Wakil Kepala Sekolah SMA Negeri 1 Cilaku.<br><br>
+            </div>
+            <br>
 
 
         </div> <!-- .content -->
 
 
-<!--Modal Keluar -->
+        <!--Modal Keluar -->
         <div class="modal fade" id="konfirmkeluar" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticModalLabel">Apakah anda yakin ingin keluar?</h5>
-                        </div>
-                       <div class="modal-footer">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticModalLabel">Apakah anda yakin ingin keluar?</h5>
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-                        <form  action="<?php echo base_url('index.php/Welcome/logout'); ?>">
-                        <input type="submit" class="btn btn-primary" value="Ya">
-                    </form>
+                        <form action="<?php echo base_url('index.php/Welcome/logout'); ?>">
+                            <input type="submit" class="btn btn-primary" value="Ya">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
 
-<!--Footer -->
+        <!--Footer -->
         <div class="clearfix"></div>
         <footer class="site-footer">
             <div class="footer-inner bg-white">
@@ -147,43 +150,44 @@ if($login=='loginadmin'){
 
            
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src=" assets/js/vendor/jquery-2.1.4.min.js"></script>
+                        <script src="assets/js/popper.min.js"></script>
+                        <script src="assets/js/plugins.js"></script>
+                        <script src="assets/js/main.js"></script>
 
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-
-
-    <!--Chartist Chart-->
-    <script src="assets/js/lib/chartist/chartist.min.js"></script>
-    <script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script> 
-
-    
-    <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
+                        <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
 
 
-    <script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
-    <script src="assets/weather/js/weather-init.js"></script>
+                        <!--Chartist Chart-->
+                        <script src="assets/js/lib/chartist/chartist.min.js"></script>
+                        <script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
 
 
-    <script src="assets/js/lib/moment/moment.js"></script>
-    <script src="assets/calendar/fullcalendar.min.js"></script>
-    <script src="assets/calendar/fullcalendar-init.js"></script>
-
-    <script type="text/javascript" src="assets/datatable/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/datatable/js/jquery.dataTables.js"></script>
+                        <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+                        <script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+                        <script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
 
 
-<div id="container">
-  
- 
-  
-</div>
+                        <script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
+                        <script src="assets/weather/js/weather-init.js"></script>
+
+
+                        <script src="assets/js/lib/moment/moment.js"></script>
+                        <script src="assets/calendar/fullcalendar.min.js"></script>
+                        <script src="assets/calendar/fullcalendar-init.js"></script>
+
+                        <script type="text/javascript" src="assets/datatable/js/jquery.js"></script>
+                        <script type="text/javascript" src="assets/datatable/js/jquery.dataTables.js"></script>
+
+
+                        <div id="container">
+
+
+
+                        </div>
 
 
 
 </body>
+
 </html>

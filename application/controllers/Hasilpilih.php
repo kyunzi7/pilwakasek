@@ -19,17 +19,9 @@ class Hasilpilih extends CI_Controller
                   if ($dataByDivisi->num_rows()) {
                         $x['data_by_divisi'][$id] = $dataByDivisi->result();
                   }
-                  // $x['data_by_divisi'][$id] = $dataByDivisi;
-
-                  // foreach ($dataByDivisi->result_array() as $j) {
-                  //       $x['dataByDivisi_' . $id] = $j;
-                  // }
             }
             $x['data_divisi'] = $data_divisi;
             $x['datapemilih'] = $this->mp->show_pemilih();
-
-            // print_r($x);
-            // print_r($dataByDivisi);
             $this->load->view('hasilpemilihan', $x);
       }
       public function export()

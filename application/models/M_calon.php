@@ -86,8 +86,6 @@ class M_calon extends CI_Model
 			$this->foto = $id . '.jpg';
 		}
 
-		// print_r($this);
-
 		$this->db->update('tb_calon', $this);
 		if ($this->db->affected_rows() > 0) {
 			return true;
@@ -95,50 +93,6 @@ class M_calon extends CI_Model
 			return false;
 		}
 	}
-
-	// TODO : PILIH CALON BACKUP
-	// public function pilihcalon($id)
-	// {
-
-	// 	$hasil = $this->db->query("SELECT totalsuara  FROM tb_calon where id='$id'");
-	// 	foreach ($hasil->result_array() as $i) :
-	// 		$k = $i['totalsuara'];
-	// 		$k = $k + 1;
-	// 		$this->db->query("UPDATE tb_calon set totalsuara='$k' where id='$id'");
-	// 	endforeach;
-
-
-	// 	$loginnis = $this->session->userdata('nis');
-	// 	$field2 = array(
-	// 		'suara' => $id
-	// 	);
-	// 	$this->db->where('nis', $loginnis);
-	// 	$this->db->update('tb_siswa', $field2);
-
-	// 	if ($this->db->affected_rows() > 0) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }
-	// 	private function _uploadImage()
-	// {
-	// 	$data=$this->input->post();
-	//     $config['upload_path']          = './upload';
-	//     $config['allowed_types']        = 'gif|jpg|png';
-	//     $config['file_name']            = $data['upfoto'];
-	//     $config['overwrite']			= true;
-
-	//     $this->load->library('upload', $config);
-	//     $hasil=$this->upload->do_upload('upfoto');
-
-	//     if ($hasil) {
-	//         return $this->upload->$hasil("file_name");
-	//     }else
-	//     return "default.jpg";
-
-
-	// 	}
 
 	public function pilihcalon($suara)
 	{
@@ -148,10 +102,7 @@ class M_calon extends CI_Model
 			$hasil = $this->db->query("SELECT totalsuara  FROM tb_calon where id='$value'");
 			foreach ($hasil->result_array() as $i) :
 				$k = $i['totalsuara'];
-				// echo "SEBELUM DI TAMBAH {$value} : {$k} ----------- ";
 				$k = $k + 1;
-				// echo "SETELAH DI TAMBAH {$value} : {$k}";
-
 				$this->db->query("UPDATE tb_calon set totalsuara='$k' where id='$value'");
 			endforeach;
 		}

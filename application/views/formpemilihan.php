@@ -151,7 +151,7 @@
 
         <center>
             <div class="footer-inner bg-white">
-                Copyright &copy; TIM IT SMANSAKU || 2023
+                Copyright &copy; TIM IT SMANSAKU || <?php echo date('Y'); ?>
             </div>
         </center>
     </div> <!-- .content -->

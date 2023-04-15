@@ -346,7 +346,7 @@
             </div>
             <!--Modal truncate -->
             <div class="modal fade" id="truncate" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticModalLabel">Jika Anda menghapus semua data Calon maka
@@ -371,7 +371,7 @@
 
                         </div>
                         <div class="col-sm-6 text-right">
-                            Copyright &copy; TIM IT SMANSAKU || 2023
+                            Copyright &copy; TIM IT SMANSAKU || <?php echo date('Y'); ?>
                         </div>
                     </div>
                 </div>
