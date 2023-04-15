@@ -43,15 +43,16 @@ class Form extends CI_Controller
 	// 	redirect(base_url("?pesan=terimakasih"));
 	// }
 
-	public function pilihCalonWaka()
+	public function pilih()
 	{
-		$my_array = $this->input->post('pilihan');
-		foreach ($my_array as $a => $d) {
-			foreach ($d as $value) {
-				echo "{$a} : {$value}";
-				echo "<br />";
-				// $this->mc->pilihcalon($value);
-			}
+		$data = $this->input->post('dataPilihan');
+		$sendToModel = array();
+		foreach ($data as $a => $d) {
+			$a++;
+			$sendToModel["suara_{$a}"] = $d;
 		}
+
+		$result = $this->mc->pilihcalon($sendToModel);
+		// redirect(base_url("?pesan=terimakasih"));
 	}
 }

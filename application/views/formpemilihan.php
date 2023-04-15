@@ -1,8 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
 <!--<![endif]-->
 
@@ -16,24 +12,13 @@
     <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="shortcut icon" href="images/favicon.png">
 
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
-
-
-    <link href="assets/weather/css/weather-icons.css" rel="stylesheet" />
-    <link href="assets/calendar/fullcalendar.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="assets/css/charts/chartist.min.css" rel="stylesheet">
-    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="assets/datatable/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="assets/datatable/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/datatable/css/dataTables.bootstrap.css">
-
 
 </head>
 
@@ -50,7 +35,7 @@
     }
     ?>
     <div class="content">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb d-block">
             <li class="breadcrumb-item">
                 <div class="row">
                     <div class="col-3"><img src="<?php echo base_url('images/logo.png'); ?>"></div>
@@ -60,8 +45,7 @@
             </li>
         </ol>
         <hr>
-
-        <form method="post" action="<?php echo base_url('index.php/form/pilihCalonWaka'); ?>">
+        <form id="formPilihan">
             <?php
             foreach ($data_divisi->result_array() as $i) :
                 $id = $i['id_divisi'];
@@ -69,7 +53,7 @@
                 $ket = $i['ket_divisi'];
 
             ?>
-                <div class="card">
+                <div class=" card">
                     <h5 class="card-header">Divisi : <b><?php echo $nama; ?></b> </h5>
                     <div class="card-body">
                         <div class="row">
@@ -116,7 +100,7 @@
                             }
                             ?>
                         </div>
-                        <select class="custom-select" required name="pilihan[]">
+                        <select class="custom-select" name="pilihan[]" required>
                             <option value="">Pilih Divisi <?php echo $nama; ?></option>
                             <?php
                             foreach ($data_by_divisi as $current_cat => $dc) {
@@ -140,9 +124,30 @@
                 </div>
             <?php
             endforeach; ?>
-            <input type="submit" class="btn btn-success btn-lg btn-block">
+            <!-- <div class="spinner-border text-muted"></div> -->
+            <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
         </form>
 
+        <!-- <input type="submit" class="btn btn-success btn-lg btn-block"> -->
+        <!-- <a href="" class="btn btn-success btn-lg btn-block" aria-haspopup="true" aria-expanded="false" data-toggle="modal" data-target="#konfirmasiPilihan">SUBMIT PILIHAN</a> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="konfirmasiPilihan" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Konfirmasi Pilihan</h5>
+                    </div>
+                    <div class="modal-body">
+                        Apakah anda yakin dengan pilihan ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light btnCancel" data-dismiss="modal">Tidak</button>
+                        <button type="submit" name="mySubmit" class="btn btn-success" id="submitPilihan">Ya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <center>
             <div class="footer-inner bg-white">
@@ -152,44 +157,64 @@
     </div> <!-- .content -->
     </div><!-- /#right-panel -->
 
+    <!-- Link ke Bootstrap JS dan jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-
-
-    <!--Chartist Chart-->
-    <script src="assets/js/lib/chartist/chartist.min.js"></script>
-    <script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
-
-
-    <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
-
-
-    <script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
-    <script src="assets/weather/js/weather-init.js"></script>
-
-
-    <script src="assets/js/lib/moment/moment.js"></script>
-    <script src="assets/calendar/fullcalendar.min.js"></script>
-    <script src="assets/calendar/fullcalendar-init.js"></script>
-
-    <script type="text/javascript" src="assets/datatable/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/datatable/js/jquery.dataTables.js"></script>
-
-    <script type="text/javascript">
+    <script>
         $(document).ready(function() {
-            $('.dataku').DataTable();
+            var selectedValues = [];
+            $('#formPilihan').submit(function(e) {
+                e.preventDefault();
+                selectedValues = [];
+
+                var selectElements = document.querySelectorAll('[name="pilihan[]"]');
+
+
+                for (var i = 0; i < selectElements.length; i++) {
+                    var selectedOption = selectElements[i].value;
+
+                    if (selectedOption) {
+                        selectedValues.push(selectedOption);
+                    }
+                }
+
+                console.log(selectedValues);
+
+
+                // TODO : MODAL
+
+                $('#konfirmasiPilihan').modal('show');
+            });
+
+            $('#submitPilihan').click(function(e) {
+                $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading ....');
+                $(this).prop('disabled', true);
+                $('.btnCancel').prop('disabled', true);
+                $.ajax({
+                    url: '<?php echo base_url('index.php/form/pilih'); ?>',
+                    type: 'post',
+                    data: {
+                        dataPilihan: selectedValues
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        var baseUrl = window.location.origin;
+                        window.location.href = baseUrl + '?pesan=terimakasih';
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
         });
     </script>
+    <script>
 
-
+    </script>
 
 
 

@@ -96,30 +96,31 @@ class M_calon extends CI_Model
 		}
 	}
 
-	public function pilihcalon($id)
-	{
+	// TODO : PILIH CALON BACKUP
+	// public function pilihcalon($id)
+	// {
 
-		$hasil = $this->db->query("SELECT totalsuara  FROM tb_calon where id='$id'");
-		foreach ($hasil->result_array() as $i) :
-			$k = $i['totalsuara'];
-			$k = $k + 1;
-			$this->db->query("UPDATE tb_calon set totalsuara='$k' where id='$id'");
-		endforeach;
+	// 	$hasil = $this->db->query("SELECT totalsuara  FROM tb_calon where id='$id'");
+	// 	foreach ($hasil->result_array() as $i) :
+	// 		$k = $i['totalsuara'];
+	// 		$k = $k + 1;
+	// 		$this->db->query("UPDATE tb_calon set totalsuara='$k' where id='$id'");
+	// 	endforeach;
 
 
-		$loginnis = $this->session->userdata('nis');
-		$field2 = array(
-			'suara' => $id
-		);
-		$this->db->where('nis', $loginnis);
-		$this->db->update('tb_siswa', $field2);
+	// 	$loginnis = $this->session->userdata('nis');
+	// 	$field2 = array(
+	// 		'suara' => $id
+	// 	);
+	// 	$this->db->where('nis', $loginnis);
+	// 	$this->db->update('tb_siswa', $field2);
 
-		if ($this->db->affected_rows() > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	// 	if ($this->db->affected_rows() > 0) {
+	// 		return true;
+	// 	} else {
+	// 		return false;
+	// 	}
+	// }
 	// 	private function _uploadImage()
 	// {
 	// 	$data=$this->input->post();
@@ -138,6 +139,33 @@ class M_calon extends CI_Model
 
 
 	// 	}
+
+	public function pilihcalon($suara)
+	{
+		$setDataSuara = array();
+		foreach ($suara as $key => $value) {
+			$setDataSuara[$key] = $value;
+			$hasil = $this->db->query("SELECT totalsuara  FROM tb_calon where id='$value'");
+			foreach ($hasil->result_array() as $i) :
+				$k = $i['totalsuara'];
+				// echo "SEBELUM DI TAMBAH {$value} : {$k} ----------- ";
+				$k = $k + 1;
+				// echo "SETELAH DI TAMBAH {$value} : {$k}";
+
+				$this->db->query("UPDATE tb_calon set totalsuara='$k' where id='$value'");
+			endforeach;
+		}
+		$loginnis = $this->session->userdata('nis');
+		$this->db->where('nis', $loginnis);
+		$this->db->update('tb_siswa', $setDataSuara);
+
+		if ($this->db->affected_rows() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	private function _uploadImage()
 	{
 		$config['upload_path']          = './upload/';
